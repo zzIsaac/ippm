@@ -1,0 +1,96 @@
+/* pages/home/home.wxss */
+
+.page-wrapper {
+  margin: 0;
+  font-size: 28rpx;
+  line-height: 1.5;
+  color: #333;
+  background-color: #efefef;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 2000rpx;
+}
+
+.proposal-title_h .title_h {
+  position: absolute;
+  left: 0;
+  width: 534rpx;
+  height: 80rpx;
+  line-height: 100rpx;
+  margin: 30rpx 0;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.proposal-title_s .title_s {
+  position: relative;
+  width: 580rpx;
+  height: 80rpx;
+  margin: 126rpx 0;
+  margin-left: 54rpx;
+  font-size: 30rpx;
+  font-family: Arial;
+}
+
+.proposal-list_item .item-title {
+  position: relative;
+  margin-left: 53rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  height: 90rpx;
+}
+
+.proposal-list_item .item-info {
+  position: relative;
+  font-size: 31rpx;
+  width: 80%;
+  height: 130rpx;
+  margin-left: 53rpx;
+  text-align: center;
+}
+
+.proposal-list_item .item-info .list-input {
+  border: 2rpx solid rgba(87, 85, 85, 0.26);
+  border-width: 3rpx 0;
+  border-radius: 18rpx;
+  height: 78rpx;
+}
+
+.proposal-list_item .item-title .item-redio-info {
+}
+
+.checkbox {
+  width: 580rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 28rpx;
+  color: #888;
+  border: 2rpx solid #cecece;
+  border-radius: 5rpx;
+  display: inline-block;
+  margin: 10rpx;
+  margin-left: 60rpx;
+  position: relative;
+}
+
+.checkbox checkbox {
+  margin-left: 53rpx;
+  border-radius: 50%;  /*圆角 */
+  width: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 40rpx;
+  text-align: center;
+  background-color: #cecece;
+  font-size: 32rpx; /* 对勾大小 30rpx */
+  color: #fff; /* 对勾颜色 白色 */
+  background: transparent;
+  /* transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1); */
+}
+
+.checkbox .item-redio-text{
+  margin-left: 24%;
+  text-align: center;
+}

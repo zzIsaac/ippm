@@ -1,0 +1,34 @@
+<!--pages/home/home.wxml-->
+<view class="page-wrapper">
+  <view class="proposal-title_h">
+    <view class="title_h">寮步当纳利改善提案项目收集</view>
+  </view>
+  <view class="proposal-title_s">
+    <view class="title_s">感谢您能抽出几分钟的时间来填写一下内容,现在我们就马上开始吧！</view>
+  </view>
+  <view class="proposal-list_item">
+    <view class="item-title">1.提报日期</view>
+    <view class="item-info">
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <input class="list-input" value='{{time}}' placeholder='选择时间' disabled="true" />
+      </picker>
+    </view>
+  </view>
+
+  <view class="proposal-list_item">
+    <view class="item-title">2.报告提交部门 </view>
+    <view class="item-redio-info">
+      <radio-group>
+        <label class="checkbox" wx:for="{{impDictList}}"wx:key="{{item.did}}" wx:for-item="item">
+          <checkbox value="{{item.did}}"></checkbox>
+          <text class="item-redio-text"> {{item.dname}} </text>
+        </label>
+      </radio-group>
+      <!-- <block wx:for="{{data}}" data-item="item" wx:for-index="idx" >
+  <view>
+    第{{idx}}次输出,姓名：{{item.name}}
+  </view>
+</block> -->
+    </view>
+  </view>
+</view>
