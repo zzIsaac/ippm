@@ -1,2 +1,35 @@
-<!--pages/history/history.wxml-->
-<text>pages/history/history.wxml</text>
+<!-- <view class='top'>
+<view>注 册 须 知 : </view>
+</view>
+<view>
+<view class='form'>
+<view class='hint'>标☆号为必填项</view>
+  <form  bindsubmit="formSubmit" bindreset="formReset">
+   头 像  上 传 ☆ <image wx:if="{{tempFilePaths[0] ==='undefined'}}" class='headimage' bindtap='img_item' id='0' name='headimage'></image>
+                  <image wx:else src="{{tempFilePaths[0]}}" class='headimage' bindtap='img_item' id='0' name='headimage'></image>
+  <view class='view1' ><view class='view'>姓 名  ☆ </view><input type='text' name="name"></input></view>
+  <view class='view1' ><view class='view'>性  别  ☆ </view><input type='text' name="sex"></input></view>
+  <view class='view1' ><view class='view'>登录账号 ☆ </view><input type='text' name="account"></input></view>
+  <view class='view1' ><view class='view'>登录密码 ☆ </view><input type='text' bindinput='psw_1' name="psw"></input></view>
+  <view class='view1' ><view class='view'>确认密码 ☆ </view><input type='text' bindinput='psw_2' name="psw"></input></view>
+  <view class='view1' ><view class='view'>身份证号 ☆ </view><input type='text' name="certificate_num"></input></view>
+  <view class='view1' ><view class='view'>车牌号码 ☆ </view><input type='text' name="car_num"></input></view>
+  <view class='view1' ><view class='view'>手机号码 ☆ </view><input type='text' name="linktel"></input></view>
+  <view class='view'>身份证正面 ☆ </view>
+  <image class='img' wx:if="{{!tempFilePaths[1]}}" bindtap='img_item' id='1' name='idcard_positive' src=''></image>
+  <image class='img' wx:else bindtap='img_item' id='1' name='idcard_positive' src='{{tempFilePaths[1]}}'></image>
+  <view class='view'>身份证反面 ☆ </view>
+  <image class='img' wx:if="{{!tempFilePaths[2]}}" bindtap='img_item' id='2' name='idcars_reverse' src=''></image>
+  <image class='img' wx:else bindtap='img_item' id='2' name='idcard_positive' src='{{tempFilePaths[2]}}'></image>
+  <view class='view'>行驶本 ☆ </view>
+  <image class='img' wx:if="{{!tempFilePaths[3]}}" bindtap='img_item' id='3' name='driver_license' src=''></image>
+  <image class='img' wx:else bindtap='img_item' id='3' name='idcard_positive' src='{{tempFilePaths[3]}}'></image>
+  <view class='view'>驾驶证 ☆ </view>
+  <image class='img' wx:if="{{!tempFilePaths[4]}}" bindtap='img_item' id='4' name='driving_this' src=''></image>
+  <image class='img' wx:else bindtap='img_item' id='4' name='idcard_positive' src='{{tempFilePaths[4]}}'></image>
+  <view class='xiahuaxian'></view>
+  <progress percent="{{percent}}" wx:if="{{in_percent}}" show-info />
+  <button formType="submit">提交审核</button>
+  </form>
+</view>
+</view> -->

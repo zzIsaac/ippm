@@ -44,18 +44,35 @@ Page({
     multiArray: [years, months, days, hours, minutes],
     multiIndex: [0, 9, 16, 10, 17],
     choose_year: '',
-    impDictList: [],
-    data: [
+    impDeptList: [
       {
-        name: "张三"
-      },
-      {
-        name: "李四"
+      dorder: 21, dtype: "DEPT", dpid: 145, dname: "生产-印后", did: 94
+      },{        dorder: 22, dtype: "DEPT", dpid: 145, dname: "物料", did: 95
+      },{
+        dorder: 23, dtype: "DEPT", dpid: 145, dname: "行政", did: 96
+      
+    }],
+    ischecked_input_n:false,
+    ischecked_input_j: false,
+    ischecked_input_p: false,
+    ischecked_input_d: false,
+    ischecked_input_ds: false,
+    impEtypeList:[{
+      dorder: 1, dtype: "ETYPE", dpid: 0, dname: "品质提升", did: 144
+    }, {
+        dorder: 2, dtype: "ETYPE", dpid: 0, dname: "效率提升", did: 145
       }, {
-        name: "王五"
-      }
-
-    ]
+        dorder: 3, dtype: "ETYPE", dpid: 0, dname: "方法改善", did: 146
+    }],
+    impAreaList:[{
+      dorder: 1, dtype: "AREA", dpid: 141, dname: "老厂A栋", did: 136
+    }, {
+        dorder: 2, dtype: "AREA", dpid: 141, dname: "老厂B栋", did: 137
+      }, {
+        dorder: 3, dtype: "AREA", dpid: 141, dname: "老厂C栋", did: 138
+    }],
+    picSrc1:'',
+    picSrc2: ''
   },
 
   onLoad: function () {
@@ -63,27 +80,228 @@ Page({
     this.setData({
       choose_year: this.data.multiArray[0][0]
     })
-    
-    this.getdeptData();
 
+    var d_type = 'DEPT';
+    var d_pid = 142;
+    this.getdeptData(d_type, d_pid);
+
+    d_type = 'ETYPE';
+    this.getEtypeData(d_type);
+    
+    d_type = 'AREA';
+    d_pid = 141;
+    this.getAreaData(d_type, d_pid);
   },
 
-  getdeptData:function(){
+  /**获取部门数据 */
+  getdeptData: function (d_type, d_pid) {
     console.log('getdeptData');
     var that = this;
     wx.request({
-      url: 'http://localhost/ImpDict/impdict/deptListByCb',
-      header:{
+      url: 'http://localhost/impDict/impdict/deptListByCb',
+      header: {
         "Content-Type": "applciation/json"
       },
+      data:{
+        'd_type': d_type,
+        'd_pid': d_pid
+      },
       method: 'GET',
-      success:function(res){
+      success: function (res) {
         console.log(res);
         that.setData({
-          impDictList: res.data.impDictList
-            
+          impDeptList: res.data.impDeptList
+
         })
+      },fail:function(){
+
       }
+    })
+  },
+
+/**获取事件类型数据 */
+  getEtypeData: function (d_type){
+    console.log('getEtypeData');
+    var that = this;
+    wx.request({
+      url: 'http://localhost/impDict/impdict/etypeList',
+      header: {
+        "Content-Type": "applciation/json"
+      },
+      data: {
+        'd_type': d_type
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          impEtypeList: res.data.etypeList
+
+        })
+      },fail: function () {
+
+      }
+    })
+  },
+
+  /**获取区域数据 */
+  getAreaData: function (d_type, d_pid) {
+    console.log('getAreaData');
+    var that = this;
+    wx.request({
+      url: 'http://localhost/impDict/impdict/areaList',
+      header: {
+        "Content-Type": "applciation/json"
+      },
+      data: {
+        'd_type': d_type,
+        'd_pid': d_pid
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          impAreaList: res.data.areaList
+
+        })
+      },fail: function () {
+
+      }
+    })
+  },
+
+  // importPic:function(){
+  //   var _this = this;
+  //   wx.chooseImage({
+  //     count: 1, // 最多可以选择的图片张数，默认9
+  //     sizeType: ['original', 'compressed'],// original 原图，compressed 压缩图，默认二者都有
+  //     sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有
+  //     success: function(res) {
+  //       console.log("importPic:"+res);
+  //       _this.setData({
+  //         impsrc:res.tempFilePaths
+  //       })
+  //     },
+  //   })
+  // }, 
+
+  importPic: function (e) {
+    var that = this;
+    wx.showActionSheet({
+      itemList: ['从相册中选择', '拍照'],
+      success: function (res) {
+        if (!res.cancel) {
+          if (res.tapIndex == 0) {
+            that.chooseWxImageShop(e,'album')
+          } else if (res.tapIndex == 1) {
+            that.chooseWxImageShop(e,'camera')
+          }
+        }
+      }
+    })
+  },
+  chooseWxImageShop: function (e,type) {
+    console.log(type)
+    var that = this;
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],
+      sourceType: [type],
+      success: function (res) {
+        console.log(res.tempFilePaths[0])
+        that.setData({
+          picSrc1: res.tempFilePaths[0]
+
+        })
+        /*上传单张
+            that.data.orderDetail.shopImage = res.tempFilePaths[0],
+            that.upload_file(API_URL + 'shop/shopIcon', res.tempFilePaths[0])
+        */
+        /*上传多张（遍历数组，一次传一张）
+           for (var index in res.tempFilePaths) {
+              that.upload_file(API_URL + 'shop/shopImage', res.tempFilePaths[index])
+           }
+       */
+       
+        // that.upload_file('http:localhost:80/', res.tempFilePaths[0])
+      }
+    })
+  },
+
+  upload_file: function (url, filePath) {
+    var that = this;
+    wx.uploadFile({
+      url: url,
+      filePath: filePath,
+      name: 'uploadFile',
+      header: {
+        'content-type': 'multipart/form-data'
+      }, // 设置请求的 header
+      // formData: { 'shopId': wx.getStorageSync('shopId') }, // HTTP 请求中其他额外的 form data
+      success: function (res) {
+        wx.showToast({
+          title: "提交成功",
+          icon: 'success',
+          duration: 700
+        })
+      },
+      fail: function (res) {
+      }
+    })
+  },
+
+/**form 提交 */
+  formSubmit: function (e) {
+    console.log('formlog:', e.detail.value)
+    wx.showModal({
+      title: '提示',
+      content: '提交失败,请重新提交!',
+    })
+  },
+
+  /**元素点击更换样式 */
+  clickEleChangeClass_n:function(){
+    this.setData({
+      ischecked_input_n:true,
+      ischecked_input_j: false,
+      ischecked_input_p: false,
+      ischecked_input_d: false,
+      ischecked_input_ds: false,
+    })
+  },
+  clickEleChangeClass_j: function () {
+    this.setData({
+      ischecked_input_j: true,
+      ischecked_input_n: false,
+      ischecked_input_p: false,
+      ischecked_input_d: false,
+      ischecked_input_ds: false,
+    })
+  },
+  clickEleChangeClass_p: function () {
+    this.setData({
+      ischecked_input_p: true,
+      ischecked_input_n: false,
+      ischecked_input_j: false,
+      ischecked_input_d: false,
+      ischecked_input_ds: false,
+    })
+  },
+  clickEleChangeClass_d: function () {
+    this.setData({
+      ischecked_input_n: false,
+      ischecked_input_j: false,
+      ischecked_input_p: false,
+      ischecked_input_d: true,
+      ischecked_input_ds: false,
+    })
+  },
+  clickEleChangeClass_ds: function () {
+    this.setData({
+      ischecked_input_n: false,
+      ischecked_input_j: false,
+      ischecked_input_p: false,
+      ischecked_input_d: false,
+      ischecked_input_ds: true,
     })
   },
   //获取时间日期

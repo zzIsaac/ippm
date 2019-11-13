@@ -21,7 +21,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.8.3",
+	"libVersion": "2.6.6",
 	"appid": "wx63d94a6fdd8e4a2c",
 	"projectname": "LB-RRD",
 	"debugOptions": {

@@ -1,0 +1,92 @@
+<view class='head head-height'>
+   <block wx:if="{{!hasUserInfo && canIUse}}">
+    <view class="userinfo">
+      <image class="userinfo-avatar" src="../../images/icon-mine.png" mode="cover"></image>
+      <text class="userinfo-nickname">微信授权</text>
+    </view>
+    <button class="login-button head-height" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  </block>
+  <block wx:else>
+    <view class="userinfo">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+  </block> 
+  <view class="userinfo">
+      <image class="userinfo-avatar" src="" mode="cover"></image>
+      <text class="userinfo-nickname">请登录!</text>
+  </view>
+</view>
+<view class="flex-wrp" >
+<view class="flex-item">
+  <view class="bc_blue">
+    <text style="font:bold;color:#2c41D8;font-size:36rpx;font-family:Microsoft Yahei;">120 \n</text>
+    <text style="font:bold;color:#585858;font-size:27rpx;font-family:Yahei;">累计获得积分</text>
+  </view>
+</view>
+<view class="flex-item">
+  <view class="bc_blue">
+     <text style="font:bold;color:#2c41D8;font-size:36rpx;font-family:Microsoft Yahei;">20 \n</text>
+    <text style="font:bold;color:#585858;font-size:27rpx;font-family:Microsoft Yahei;">已兑换积分</text>
+  </view>
+</view>
+<view class="flex-item">
+  <view class="bc_blue">
+    <text style="font:bold;color:#2c41D8;font-size:36rpx;font-family:Yahei;">100 \n</text>
+    <text style="font:bold;color:#585858;font-size:27rpx;font-family:;">当前剩余积分</text>
+  </view>
+</view>
+     
+</view>
+
+<view class="hr"></view>
+<view class='item'>
+  <view class="title">积分记录</view>
+  <view class="detail2">
+    <text>></text>
+  </view>
+</view>
+<view class="line"></view>
+<view class='item'>
+  <view class="title">提案记录</view>
+  <view class="detail2">
+    <text>></text>
+  </view>
+</view>
+<view class="line"></view>
+<view class='item'>
+  <view class="title">手机绑定</view>
+  <view class="detail2">
+    <text>></text>
+  </view>
+</view>
+
+<view class="hr"></view>
+<view class='item'>
+  <view class="title">****</view>
+  <view class="detail2">
+    <text> ></text>
+  </view>
+</view>
+<view class="line"></view>
+<view class="item">
+  <view class="title">****</view>
+  <view class="detail2">
+    <text> ></text>
+  </view>
+</view>
+<view class="line"></view>
+<view class="item">
+  <view class="title">意见反馈</view>
+  <view class="detail2">
+    <text> ></text>
+  </view>
+</view>
+<view class="line"></view>
+<!-- <view class="item">
+  <view class="title">设置</view>
+  <view class="detail2">
+    <text> ></text>
+  </view>
+</view> -->
+<view class="hr"></view>

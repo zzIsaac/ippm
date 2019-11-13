@@ -12,59 +12,64 @@
   min-height: 2000rpx;
 }
 
+.page-wrapper .item-title label {
+  color: red;
+}
+
 .proposal-title_h .title_h {
   position: absolute;
-  left: 0;
-  width: 534rpx;
-  height: 80rpx;
-  line-height: 100rpx;
+  width: 580rpx;
+  height: 68rpx;
+  line-height: 68rpx;
   margin: 30rpx 0;
   text-align: center;
-  font-size: 32rpx;
+  font-size: 35rpx;
   font-weight: bold;
 }
 
 .proposal-title_s .title_s {
   position: relative;
-  width: 580rpx;
-  height: 80rpx;
+  width: 80%;
+  align-items: center;
+  height: 68rpx;
   margin: 126rpx 0;
-  margin-left: 54rpx;
+  margin-left: 8%;
   font-size: 30rpx;
   font-family: Arial;
 }
-
+/* .proposal-list_item {
+  width: 80%;
+} */
 .proposal-list_item .item-title {
   position: relative;
-  margin-left: 53rpx;
+  margin-left: 9%;
   font-size: 30rpx;
   font-weight: bold;
-  height: 90rpx;
+  height: 68rpx;
 }
 
 .proposal-list_item .item-info {
   position: relative;
   font-size: 31rpx;
   width: 80%;
+  margin-left: 8%;
+  align-items: center;
   height: 130rpx;
-  margin-left: 53rpx;
   text-align: center;
 }
 
 .proposal-list_item .item-info .list-input {
   border: 2rpx solid rgba(87, 85, 85, 0.26);
-  border-width: 3rpx 0;
-  border-radius: 18rpx;
-  height: 78rpx;
-}
-
-.proposal-list_item .item-title .item-redio-info {
+  border-radius: 5px;
+  height: 68rpx;
+  font-size: 30rpx;
 }
 
 .checkbox {
-  width: 580rpx;
-  height: 72rpx;
-  line-height: 72rpx;
+  width: 80%;
+  align-items: center;
+  height: 68rpx;
+  line-height: 68rpx;
   font-size: 28rpx;
   color: #888;
   border: 2rpx solid #cecece;
@@ -76,8 +81,8 @@
 }
 
 .checkbox checkbox {
-  margin-left: 53rpx;
-  border-radius: 50%;  /*圆角 */
+  margin-left: 10%;
+  border-radius: 5px; /*圆角 */
   width: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
   height: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
   line-height: 40rpx;
@@ -90,7 +95,177 @@
    -webkit-transform:translate(-50%, -50%) scale(1); */
 }
 
-.checkbox .item-redio-text{
+.checkbox .item-redio-text {
   margin-left: 24%;
   text-align: center;
+}
+
+.proposal-list_item_info .item-title {
+  position: relative;
+  margin-top: 53rpx;
+  margin-left: 8%;
+  font-size: 30rpx;
+  font-weight: bold;
+  height: 45rpx;
+}
+
+.proposal-list_item_info .item-sup-info {
+  position: relative;
+  margin-top: 13rpx;
+  margin-left: 8%;
+  width: 80%;
+  font-size: 27rpx;
+}
+
+/* .proposal-list_item_3 .item-input .checked {
+  border: 1px solid #fe0002;
+  color: #fe0002;
+  background: #fff;
+}
+
+.proposal-list_item_3 .item-input .normal {
+  border: none;
+  color: #333;
+  background: #f0f1ec;
+} */
+
+.proposal-list_item_info input {
+  position: relative;
+  padding-left: 25rpx;
+}
+
+.proposal-list_item_info .item-input-view-a .checked {
+  position: relative;
+  margin-top: 13rpx;
+  width: 80%;
+  margin-left: 8%;
+  align-items: center;
+  height: 68rpx;
+  border: 1px solid #6100feef;
+  border-radius: 5px;
+  text-indent: 20rpx; /*文字开始显示位置*/
+}
+
+.proposal-list_item_info .item-input-view-a .normal {
+  position: relative;
+  margin-top: 13rpx;
+  width: 80%;
+  margin-left: 8%;
+  align-items: center;
+  height: 68rpx;
+  border: 2rpx solid #cecece;
+  border-radius: 5px;
+  text-indent: 20rpx;
+}
+
+.proposal-list_item_info .item-input-view-b .checked {
+  position: relative;
+  margin-top: 13rpx;
+  width: 80%;
+  margin-left: 8%;
+  align-items: center;
+  height: 68rpx;
+  border: 1px solid #6100feef;
+  border-radius: 5px;
+  text-indent: 20rpx;
+}
+
+.proposal-list_item_info .item-input-view-b .normal {
+  position: relative;
+  margin-top: 13rpx;
+  width: 80%;
+  margin-left: 8%;
+  align-items: center;
+  height: 68rpx;
+  border: 2rpx solid #cecece;
+  border-radius: 5px;
+  text-indent: 20rpx;
+}
+
+.proposal-list_item_info .item-input-view-c .checked {
+  position: relative;
+  margin-top: 13rpx;
+  width: 80%;
+  margin-left: 8%;
+  align-items: center;
+  height: 68rpx;
+  border: 1px solid #6100feef;
+  border-radius: 5px;
+  text-indent: 20rpx;
+}
+
+.proposal-list_item_info .item-input-view-c .normal {
+  position: relative;
+  margin-top: 13rpx;
+  width: 80%;
+  margin-left: 8%;
+  align-items: center;
+  height: 68rpx;
+  border: 2rpx solid #cecece;
+  border-radius: 5px;
+  text-indent: 20rpx;
+}
+
+.proposal-list_item .item-text-desc .checked {
+  position: relative;
+  margin-top: 13rpx;
+  width: 80%;
+  margin-left: 10%; /*容器决定位置*/
+  align-items: center;
+  border: 1px solid #6100feef;
+  border-radius: 5px;
+  text-indent: 20rpx;
+}
+
+.proposal-list_item .item-text-desc .normal {
+  position: relative;
+  margin-top: 13rpx;
+  width: 80%;
+  margin-left: 10%; /*容器决定位置*/
+  align-items: center;
+  border: 2rpx solid #cecece;
+  border-radius: 5px;
+  text-indent: 20rpx;
+}
+
+.proposal-list_item .item-text-desc textarea {  
+  height: 180rpx;
+  padding-top: 20rpx;
+}
+
+.proposal-list_item .item-text-pic {
+  font-size: 25rpx;
+}
+
+.proposal-list_item .item-text-pic button {
+  position: relative;
+  margin-top: 13rpx;
+  width: 80%;
+  height: 68rpx;
+  border-radius: 5px;
+  border: 2rpx solid #cecece;
+  background-color: #efefef;
+  font-size: 22rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/**去除原button边框*/
+.proposal-list_item .item-text-pic button::after {
+  border: 0;
+}
+
+.proposal-list_item .item-text-pic button .btnImg {
+  margin-right: 8rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.item-submit-button button{
+  width: 80%;
+  height: 80rpx;
+  text-align: center;
+  background-color: #6100feef;
 }

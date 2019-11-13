@@ -6,29 +6,166 @@
   <view class="proposal-title_s">
     <view class="title_s">感谢您能抽出几分钟的时间来填写一下内容,现在我们就马上开始吧！</view>
   </view>
+  <form bindsubmit="formSubmit">
   <view class="proposal-list_item">
-    <view class="item-title">1.提报日期</view>
+    <view class="item-title">1.提报日期
+      <label>*</label>
+    </view>
     <view class="item-info">
       <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-        <input class="list-input" value='{{time}}' placeholder='选择时间' disabled="true" />
+        <input class="list-input" name ="impDate" value='{{time}}' placeholder='选择时间' disabled="true" />
       </picker>
     </view>
   </view>
 
   <view class="proposal-list_item">
-    <view class="item-title">2.报告提交部门 </view>
+    <view class="item-title">2.报告提交部门
+      <label>*</label>
+    </view>
     <view class="item-redio-info">
-      <radio-group>
-        <label class="checkbox" wx:for="{{impDictList}}"wx:key="{{item.did}}" wx:for-item="item">
+      <radio-group name ="impDept">
+        <label class="checkbox" wx:for="{{impDeptList}}" wx:key="{{item.did}}" wx:for-item="item">
           <checkbox value="{{item.did}}"></checkbox>
           <text class="item-redio-text"> {{item.dname}} </text>
         </label>
       </radio-group>
-      <!-- <block wx:for="{{data}}" data-item="item" wx:for-index="idx" >
-  <view>
-    第{{idx}}次输出,姓名：{{item.name}}
-  </view>
-</block> -->
+
     </view>
   </view>
+
+  <view class="proposal-list_item_info">
+    <view class="item-title">3.提报人信息
+      <label>*</label>
+    </view>
+    <view>
+      <view class="item-sup-info">提报人姓名</view>
+      <view class="item-input-view-a">
+        <input class="{{ischecked_input_n?'checked':'normal'}}" name="impName" value="" maxlength="100" bindtap="clickEleChangeClass_n"></input>
+      </view>
+    </view>
+    <view>
+      <view class="item-sup-info">提报人工号</view>
+      <view class="item-input-view-b">
+        <input class="{{ischecked_input_j?'checked':'normal'}}" name="impJnumber" value="" maxlength="100" bindtap="clickEleChangeClass_j"></input>
+      </view>
+    </view>
+    <view>
+      <view class="item-sup-info">提报人电话 </view>
+      <view class="item-input-view-c">
+        <input class="{{ischecked_input_p?'checked':'normal'}}" name="impPhone" value="" maxlength="100" bindtap="clickEleChangeClass_p"></input>
+      </view>
+    </view>
+  </view>
+<view>
+    <text>\n</text>
+  </view>
+  <view class="proposal-list_item">
+    <view class="item-title">4.事件分类
+      <label>*</label>
+    </view>
+    <view class="item-redio-info">
+      <radio-group>
+        <label class="checkbox" wx:for="{{impEtypeList}}" wx:key="{{item.did}}" wx:for-item="item">
+          <checkbox value="{{item.did}}"></checkbox>
+          <text class="item-redio-text"> {{item.dname}} </text>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+<view>
+    <text>\n</text>
+  </view>
+  <view class="proposal-list_item">
+    <view class="item-title">5.事件相关区域
+      <label>*</label>
+    </view>
+    <view class="item-redio-info">
+      <radio-group>
+        <label class="checkbox" wx:for="{{impAreaList}}" wx:key="{{item.did}}" wx:for-item="item">
+          <checkbox value="{{item.did}}"></checkbox>
+          <text class="item-redio-text"> {{item.dname}} </text>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view>
+    <text>\n</text>
+  </view>
+  <view class="proposal-list_item">
+    <view class="item-title">6.事件责任部门
+      <label>*</label>
+    </view>
+    <view class="item-redio-info">
+      <radio-group>
+        <label class="checkbox" wx:for="{{impDeptList}}" wx:key="{{item.did}}" wx:for-item="item">
+          <checkbox value="{{item.did}}"></checkbox>
+          <text class="item-redio-text"> {{item.dname}} </text>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+<view>
+    <text>\n</text>
+  </view>
+   <view class="proposal-list_item">
+    <view class="item-title">7.改善前描述
+      <label>*</label>
+    </view>
+    <view class="item-text-desc">
+      <textarea class="{{ischecked_input_d?'checked':'normal'}}" value="" maxlength="300" bindtap="clickEleChangeClass_d"></textarea>
+    </view>
+  </view>
+
+  <view>
+    <text>\n</text>
+  </view>
+   <view class="proposal-list_item">
+    <view class="item-title">8.请上传改善前照片
+      <label>*</label>
+    </view>
+    <view class="item-text-pic">
+      <button bindtap="importPic" name="pic1" wx:if="{{!picSrc1[0]}}">
+        <image class='btnImg'  src='../../images/folder_picture_1185635_easyicon.net.svg'></image>
+        <view>选择文件(30M以内)</view>
+      </button>
+      <button bindtap="importPic" name="pic1"  wx:if="{{picSrc1[0]}}" >
+        <input class='btnImg' value="{{picSrc1[0]}}"></input>
+      </button>
+    </view>
+  </view>
+
+   <view>
+    <text>\n</text>
+  </view>
+   <view class="proposal-list_item">
+    <view class="item-title">9.改善后描述
+    </view>
+   <view class="item-text-desc">
+      <textarea class="{{ischecked_input_ds?'checked':'normal'}}" value="" maxlength="300" bindtap="clickEleChangeClass_ds"></textarea>
+    </view>
+  </view>
+
+<view>
+    <text>\n</text>
+  </view>
+   <view class="proposal-list_item">
+    <view class="item-title">10.请上传改善后照片
+    </view>
+    <view class="item-text-pic">
+      <button bindtap="importPic">
+        <image class='btnImg' src='../../images/folder_picture_1185635_easyicon.net.svg'></image>
+        <view>选择文件(30M以内)</view>
+      </button>
+    </view>
+  </view>
+   <view class="proposal-list_item">
+    <view class="item-title">
+    </view>
+    <view class="item-submit-button">
+      <button form-type="submit">
+        <view>提交</view>
+      </button>
+    </view>
+  </view>
+  </form>
 </view>

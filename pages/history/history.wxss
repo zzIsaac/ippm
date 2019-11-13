@@ -1,1 +1,74 @@
-/* pages/history/history.wxss */
+/* 
+page{
+  font-size: 32rpx;
+}
+.headimage{
+  margin:0 auto;
+  height: 150rpx;
+  width: 150rpx;
+  display: block;
+  margin-bottom: 50rpx;
+  border-radius: 50%;
+  background: red
+}
+.top{
+  border-radius: 15rpx;
+  background: #F7B45D;
+  height: 200rpx;
+  margin: 15rpx;
+  color: white;
+  padding: 20rpx;
+}
+.form{
+  margin: 35rpx 15rpx;
+  border:1px solid #F7B45D;
+  border-radius: 15rpx;
+  padding: 15rpx;
+  color: #F7B45D;
+  margin-bottom: 30rpx
+}
+.form .view{
+  display: inline-block;
+  width: 220rpx;
+  position: relative;
+  bottom: 10rpx
+}
+.view1{
+  margin-bottom: 20rpx; 
+}
+.hint{
+  position: relative;
+  left: 40rpx;
+  top: -35rpx;
+  background: white;
+  width: 230rpx;
+}
+input{
+  border:1px solid #F7B45D;
+  height: 30rpx;
+  padding-left: 20rpx;
+  border-radius: 15rpx;
+  display: inline-block;
+}
+.img{
+  height: 220rpx;
+  display: block;
+  margin-left: 120rpx;
+  width: 360rpx;
+}
+.xiahuaxian{
+  width: 100%;
+  height: 3px;
+  background: #F7B45D;
+  margin-top: 100rpx;
+}
+button{
+  width: 320rpx;
+  height: 60rpx;
+  font-size: 25rpx;
+  line-height: 60rpx;
+  margin-top: 50rpx;
+  margin-bottom: 80rpx;
+  background: #F7B45D;
+  color: white
+} */

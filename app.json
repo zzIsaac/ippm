@@ -1,7 +1,9 @@
 {
   "pages": [
+    "pages/mypage/mypage",
     "pages/home/home",
     "pages/history/history"
+    
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -19,11 +21,13 @@
     "list": [
       {
         "pagePath": "pages/home/home",
+        "iconPath": "images/3_26px_1172221_easyicon.net.png",
         "text": "改善提案"
       },
       {
-        "pagePath": "pages/history/history",
-        "text": "我的积分"
+        "pagePath": "pages/mypage/mypage",
+        "iconPath": "images/my_topic_26px_1172609_easyicon.net.png",
+        "text": "我的"
       }
     ],
     "position": "bottom"
